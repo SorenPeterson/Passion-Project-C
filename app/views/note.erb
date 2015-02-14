@@ -1,0 +1,24 @@
+<div class="container">
+	<form action="/notes/:id<%=@notes.user_id%>/notebook/<%=@notes.id%>/edit" method="post">
+		<input type="hidden" name="_method" value="put" />
+		Please input Title:
+		<input type="text" value="<%=@notes.title%>" name="title"><br/><br/>
+		Please input Description:
+		<input type="text" value="<%=@notes.description%>" name="description"><br/><br/>
+		Please input Content:
+		<input type="text" value="<%=@notes.content%>" name="content"><br/><br/>
+		<input type="submit" value="Submit"/>
+	</form>
+</div>
+
+  <% @notes.each do |note|%>
+    <h1 class='id'><%=note.id%></h1>
+    <h1 class='title'><%=note.title%></h1>
+    <h1 class='description'><%=note.description%></h1>
+    <h1 class='content'><%=note.content%></h1>
+<% end %>
+
+<!-- turn the 2nd and add an id= drawer-left -->
+<!-- turn the 3rd into inline block and add and id= drawer-center -->
+<!-- main content always has id of drawer center -->
+<!-- turn the 4th into inline block and add an id= drawer right -->

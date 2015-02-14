@@ -16,6 +16,7 @@ GEM
       tzinfo (~> 1.1)
     arel (6.0.0)
     backports (3.6.4)
+    bcrypt (3.1.10)
     builder (3.2.2)
     capybara (2.4.4)
       mime-types (>= 1.16)
@@ -56,6 +57,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.2.0)
     rspec-support (3.2.1)
+    sass (3.4.11)
     shotgun (0.9)
       rack (>= 1.0)
     shoulda-matchers (2.8.0)
@@ -84,6 +86,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord (= 4.2)
   activesupport (= 4.2)
+  bcrypt
   capybara
   factory_girl
   faker
@@ -91,6 +94,7 @@ DEPENDENCIES
   rack-test
   rake
   rspec
+  sass
   shotgun
   shoulda-matchers
   sinatra
