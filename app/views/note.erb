@@ -1,0 +1,13 @@
+<div class="container">
+	<form action="/notes/:id<%=@notes.user_id%>/notebook/<%=@notes.id%>/edit" method="post">
+		<input type="hidden" name="_method" value="put" />
+		Please input Title:
+		<input type="text" value="<%=@notes.title%>" name="title"><br/><br/>
+		Please input Description:
+		<input type="text" value="<%=@notes.description%>" name="description"><br/><br/>
+		Please input Content:
+		<input type="text" value="<%=@notes.content%>" name="content"><br/><br/>
+		<input type="submit" value="Submit"/>
+	</form>
+</div>
+

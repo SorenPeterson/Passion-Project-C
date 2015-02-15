@@ -1,0 +1,35 @@
+<style>
+body {
+  background-image: url("../assets/zen23.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+<div id="wrapper">
+  <div id="message">
+  MAKE SOMETHING BEAUTIFUL!
+  </div>
+  <div class="container">
+    <!-- LOGIN BEGIN -->
+    <div id='login'>
+    </br>
+      O
+      <% if @login_error %>
+      <%= @login_error %>
+      <% end %>
+      <form action='/sessions' method='post'>
+        <input type='text' placeholder='Enter Username' name='username'>
+        <input type='password' placeholder='Enter Password' name='password'></br>
+        <input id='login-button' type='submit' value='Login'>
+      </form>
+    </div>
+    <!-- LOGIN ENDS -->
+    <!-- REGISTER BEGIN -->
+    <div id="register">
+      <form action='/register' method='get'>
+        <input type='submit' value='Register'>
+      </form>
+    </div>
+  </div>
+  <!-- REGISTER END -->
+</div>

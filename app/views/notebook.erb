@@ -1,0 +1,102 @@
+<style>
+body {
+  background-image: url("../assets/notebook.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+<div id="notebook_wrapper">
+  <div id="notebook_desk">
+    <div id="main_note" contenteditable="true">
+      p Title
+      <h1 class='title'><%= @notes1.title %></h1>
+      p Description
+      <p class='description'><%= @notes1.description %>
+      p Content
+        <p class='content'><%= @notes1.content %></p>
+        <ul>
+          <li><%=User.find(@notes1.user_id).username%></li>
+          <li><%=prettify(@notes1.created_at.to_s)%></li>
+        </ul>
+      </div> 
+      <!-- new note -->
+      <div id="new_note">
+        <button type="submit">New Note</button>
+      </div>
+      <!-- create -->
+      <div id="create">
+        <a href="/users/<%=@notes2.user_id%>/notebook/new">
+          <!-- <img src="/../public/assets/pencil.png"/>  -->Create</a>
+      </div>
+      <!-- edit note  -->
+      <div id="edit">
+        <a href="/users/<%=@notes1.user_id%>/notebook/<%= @notes1.id %>/edit"> Save </a>
+      </div>
+      <!-- delete note -->
+      <div id="delete">
+        <a href="/users/<%=@notes1.user_id%>/notebook/<%=@notes1.id%>/delete"> Delete </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="notebook_container">
+      <!-- Page Left -->
+    <!-- PAGE 2 -->
+    <div id="left_note">
+      <h1><%= @notes2.title %></h1>
+      p Title
+      <p><%= @notes2.description %>
+      p Description
+      <p><%= @notes2.content %></p>
+      p Content
+      <ul>
+        <li><%=User.find(@notes2.user_id).username%></li>
+        <li><%=prettify(@notes2.created_at.to_s)%></li>
+      </ul>
+    </div>
+    <!-- MAIN PAGE -->
+    <div id="center_note">
+      p Title
+      <h1><%= @notes1.title %></h1>
+      p Description
+      <p><%= @notes1.description %>
+      p Content
+      <p><%= @notes1.content %></p>
+      <ul>
+        <li><%=User.find(@notes1.user_id).username%></li>
+        <li><%=prettify(@notes1.created_at.to_s)%></li>
+      </ul>
+    </div>
+    <!-- PAGE 3 -->
+    <div id="right_note">
+      p Title
+      <h1><%= @notes3.title %></h1>
+      <p><%= @notes3.description %>
+      p Description
+      <p><%= @notes3.content %></p>
+      p Content
+        <ul>
+          <li><%=User.find(@notes3.user_id).username%></li>
+          <li><%=prettify(@notes3.created_at.to_s)%></li>
+        </ul>
+    </div>      
+        <!-- Page Right -->
+    <div id="page_right">
+    </div>
+  </div>
+</div>       
+    <!-- <div class="col-xs-6">
+            <div id="button1">
+              <div class="text">
+                <img src='../assets/pencil.png'>
+              </div>
+              <div class="click">
+                <a href="/notebook/#{@notes2.user_id}/edit" class="twitter-follow-button" data-show-count="false">Edit</a>
+              </div>
+            </div>
+          </div> -->
+
+<!--           <div id="notebook_settings">
+            <div id="edit_right">
+              <a href="/users/.userid/notebook/.id/edit"> Edit Right</a>
+            </div> -->

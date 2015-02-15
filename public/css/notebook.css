@@ -1,0 +1,181 @@
+  #notebook_wrapper {
+   width: 100%;
+   height: 100%;
+ }
+ #notebook_desk {
+  display: block;
+  text-align: center;
+  height: 500px;
+ }
+ #main_note{
+  width: 42%;
+  height: 90%;
+  display: inline-block;
+  text-align: center;
+  background-color: white;
+  margin-left: 18%;
+
+ }
+
+ #main_note p {
+   color: black;
+ }
+
+ #main_note ul {
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  margin-right: 7%;
+}
+
+#main_note li {
+  list-style-type: none;
+}
+#new_note {
+  padding: 5px;
+  text-align: center;
+  float:right;
+}
+
+#create {
+  padding: 5px;
+  text-align: center;
+  float: right;
+}
+#create a {
+}
+#edit {
+  padding: 5px;
+  float:right;
+  text-align: center;
+}
+#delete {
+  padding: 5px;
+  float:right;
+  text-align: center;
+}
+#notebook_container {
+  text-align: center;
+  background-color: black;
+  width:100%;
+ }
+#page_left {
+  height:450px;
+  color:white;
+}
+#left_note{
+  display: inline-block;
+  height: 100%;
+  width: 25%;
+  background-color: blue;
+  text-align: center;
+}
+
+#left_note p {
+ color: white;
+}
+
+#left_note ul {
+  text-align: center;
+}
+
+#left_note li {
+  list-style-type: none;
+}
+
+#center_note{
+  display: inline-block;
+  height: 35%;
+  width: 25%;
+  background-color: red;
+  text-align: center;
+}
+
+
+#center_note p {
+ color: white;
+}
+
+#center_note ul {
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  margin-right: 7%;
+}
+
+#center_note li {
+  list-style-type: none;
+}
+
+#right_note{
+  display: inline-block;
+  width: 35%;
+  height: 100%;
+  background-color: green;
+
+}
+
+#right_note p {
+ color: white;
+}
+
+#right_note ul {
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  margin-right: 7%;
+}
+
+#right_note li {
+  list-style-type: none;
+}
+
+#page_right {
+  position: absolute;
+  float:left;
+  height:450px;
+  color:white;
+}
+/*#button1 { 
+  background:#0081b7; 
+  height:50px; 
+  overflow:hidden; 
+  text-align:center; 
+  width:50px; 
+  border-radius:50%; 
+  -moz-border-radius:50%; 
+  -webkit-border-radius:50%;
+  transition:0.3s ease all; 
+  -moz-transition:0.3s ease all; 
+  -webkit-transition:0.3s ease all;
+}
+#button1.text { 
+  font-size:30px; height:100%; padding-top:5px; }
+#button1.click { opacity:0; padding:10px 10px 5px; margin:0 auto; margin-top:0px; }
+
+#button1:hover { 
+  width:200px; 
+  border-radius:5px; 
+  -moz-border-radius:5px; 
+  -webkit-border-radius:5px;
+}
+#button1:hover .text{ opacity:0; }
+#button1:hover .click{ opacity:1; margin-top:5px; }
+
+/* Button 2 --------------------------------- */
+#button2 { 
+  height:200px; 
+}
+#button2.text { 
+  font-size:100px; height:20%; 
+}
+#button2.click { opacity:0; padding-top:65px; 
+  transform:scale(0.5); -moz-transform:scale(0.5); -webkit-transform:scale(0.5); 
+}
+
+#button2:hover .text{ opacity:0; z-index:888; 
+  transform:scale(2); -moz-transform:scale(2); -webkit-transform:scale(2); 
+}
+#button2:hover .click{ opacity:1; z-index:999; 
+  transform:scale(1); -moz-transform:scale(1); -webkit-transform:scale(1); 
+}*/

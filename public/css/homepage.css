@@ -1,0 +1,172 @@
+body {
+  background-image: url("../assets/classroom1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/*Content*/
+#parallax {
+	width: 100%;
+	height: 98%;
+	margin-top: 2%;
+}
+#scroller {
+	margin-right: 25%;
+	margin-left: 25%;
+	width: 75%;
+	height: 100%;
+	display: block;
+}
+
+#fusion {
+	width: 100%;
+}
+#main {
+	display: block;
+	width: 100%;
+	margin: auto;
+}
+#mountain {
+
+}
+#river {
+
+}
+
+/*Profile*/
+
+#profile {
+	visibility: hidden;
+}
+#user_container {
+
+}
+#user_content {
+
+}
+
+
+/*
+==============================================
+slideLeft
+==============================================
+*/
+
+
+/*.slideLeft{
+	animation-name: slideLeft;
+	-webkit-animation-name: slideLeft;	
+
+	animation-duration: 1s;	
+	-webkit-animation-duration: 1s;
+
+	animation-timing-function: ease-in-out;	
+	-webkit-animation-timing-function: ease-in-out;		
+
+	visibility: visible !important;	
+}
+
+@keyframes slideLeft {
+	0% {
+		transform: translateX(150%);
+	}
+	50%{
+		transform: translateX(-8%);
+	}
+	65%{
+		transform: translateX(4%);
+	}
+	80%{
+		transform: translateX(-4%);
+	}
+	95%{
+		transform: translateX(2%);
+	}			
+	100% {
+		transform: translateX(0%);
+	}
+}
+
+@-webkit-keyframes slideLeft {
+	0% {
+		-webkit-transform: translateX(150%);
+	}
+	50%{
+		-webkit-transform: translateX(-8%);
+	}
+	65%{
+		-webkit-transform: translateX(4%);
+	}
+	80%{
+		-webkit-transform: translateX(-4%);
+	}
+	95%{
+		-webkit-transform: translateX(2%);
+	}			
+	100% {
+		-webkit-transform: translateX(0%);
+	}
+}
+*/
+
+/*
+==============================================
+slideRight
+==============================================
+*/
+
+/*
+.slideRight{
+	animation-name: slideRight;
+	-webkit-animation-name: slideRight;	
+
+	animation-duration: 1s;	
+	-webkit-animation-duration: 1s;
+
+	animation-timing-function: ease-in-out;	
+	-webkit-animation-timing-function: ease-in-out;		
+
+	visibility: visible !important;	
+}
+
+@keyframes slideRight {
+	0% {
+		transform: translateX(-150%);
+	}
+	50%{
+		transform: translateX(8%);
+	}
+	65%{
+		transform: translateX(-4%);
+	}
+	80%{
+		transform: translateX(4%);
+	}
+	95%{
+		transform: translateX(-2%);
+	}			
+	100% {
+		transform: translateX(0%);
+	}	
+}
+
+@-webkit-keyframes slideRight {
+	0% {
+		-webkit-transform: translateX(-150%);
+	}
+	50%{
+		-webkit-transform: translateX(8%);
+	}
+	65%{
+		-webkit-transform: translateX(-4%);
+	}
+	80%{
+		-webkit-transform: translateX(4%);
+	}
+	95%{
+		-webkit-transform: translateX(-2%);
+	}			
+	100% {
+		-webkit-transform: translateX(0%);
+	}
+}
+*/

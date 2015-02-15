@@ -8,10 +8,13 @@ gem 'pg'
 gem 'sinatra'
 gem 'sinatra-contrib'
 
+gem 'sass'
+
 gem 'activesupport', '~>4.1'
 gem 'activerecord', '~>4.1'
 
 gem 'rake'
+gem 'bcrypt'
 
 gem 'shotgun'
 

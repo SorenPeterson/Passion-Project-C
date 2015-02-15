@@ -11,13 +11,37 @@
     application.css is where you put your styles
   -->
   <link rel="stylesheet" href="/css/application.css">
+  <link rel="stylesheet" href="/css/homepage.css">
+  <link rel="stylesheet" href="/css/notebook.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/js/notebook.js"></script>
+  <script src="/js/login.js"></script>
   <script src="/js/application.js"></script>
 
   <title></title>
 </head>
 <body>
+    <nav>
+  <ul>
+    <li><a id="logo" href="/"><img src="../public/assets/o.jpg"></a></li>
+<!-- USER SETTINGS BEGINS -->
+    <% if current_user %>
+    <li>
+      <div id="user_settings">
+      <a href="/profile/<%= current_user.username %>"><%= current_user.username.capitalize %></a>
+     <!--    <ul>
+          <li>Profile</li>
+          <li>Notebook</li>
+          <li>Friends</li>
+          <li>Class Settings</li>
+        </ul> -->
+      <a href="/logout">Logout</a>
+    </div></li>
+    <% end %>
+<!-- USER SETTINGS ENDS -->
+  </ul>
+  </nav>
   <%= yield %>
 </body>
 </html>
