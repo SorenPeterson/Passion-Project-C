@@ -1,40 +1,58 @@
-get '/notebook/:id' do
-  # if current_user
-  @user = User.find_by(id: params[:id])
-  @notes = Note.all
-  erb :newsfeed
+# SHOW NOTE
+get '/users/:id/notebook' do
+  @start = session[:start].to_i
+  @user = User.find(params[:id])
+  @notes = Note.where(user_id: @user.id)
+  @notes1 = @notes.first
+  erb :notebook
 end
 
-# post '/note/:id' do
-#   @user_id = session[:user_id]
-#   @content = params[:content]
-#   @note = Notes.create(user_id: @user_id, content: @content)
+# CREATE NOTE
+get '/users/:id/notebook/new' do
+  @user = User.find(params[:id])
+  erb :create
+end
 
-#   redirect "/users/#{@user_id}"
+post '/users/:id/notebook/new' do
+  @user = User.find(params[:id])
+  @notes = Note.create(title: params["title"], description: params["description"], content: params["content"], user_id: @user.id)
+  @notes.to_json
+end
+
+
+# PAGE LEFT
+get '/users/:id/notebook/:note_id/left' do
+  @user = User.find(params[:id])
+  @start = session[:start] 
+  @start += 1
+  redirect "/users/#{@user.id}/notebook"
+end
+
+# PAGE RIGHT
+get '/users/:id/notebook/:note_id/right' do
+  @user = User.find(params[:id])
+  @start = session[:start] 
+  @start -= 1
+  redirect "/users/#{@user.id}/notebook"
+end
+
+# EDIT NOTE
+# get '/users/:id/notebook/:note_id/edit' do
+#   @user = User.find(params[:id])
+#   @notes = Note.find_by(id: params[:note_id])
+#   erb :'note'
 # end
 
-# bring the id
-# parse data into json
-# title, description, content
-# 
-# post '/note/:id' do
-#   @id = params[:id]
-#   @content = params[:content]
-#   @title = params[:title]
-#   @description = params[:description]
-#   content_type: :json
-#   { :id => "#{@id}",
-#     :content => "#{@content}",
-#     :title => "#{@title}",
-#     :description => "#{@description}" }.to_json
-#   erb :note
-# end
+put '/users/:id/notebook/:note_id/edit' do
+  @user = User.find(params[:id])
+  @notes = Note.find_by(id: params[:note_id]).update_attributes(title: params[:title], description: params[:description],content: params[:content])
+  @notes.to_json
+end
 
-delete 'note/:note_id' do
-  @note_id = params[:note_id]
-  @note = Notes.find(@note_id)
+
+# DELETE NOTE
+delete "/users/:id/notebook/:note_id/delete" do
+  @user = User.find(params[:id])
+  @note = Note.find(params[:note_id])
   @note.destroy
-
-  @user_id  = session[:user_id]
-  redirect "/users/#{@user_id}"
 end

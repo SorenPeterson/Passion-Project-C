@@ -19,4 +19,4 @@ Note.create(title: 'Nostradamus', description: 'Here is where the truth is hold'
 
 Note.create(title: 'Omnii', description: 'The only way to get there', content: 'is with Jazz and a keleidoscope.', user_id: 4)
 
-Note.create(title: 'Evernoticing Finances', description: 'Turn up! 0..100', content: '', user_id: 4)
+Note.create(title: 'Evernoticing Finances', description: 'Turn up! 0..100', content: 'Hello World', user_id: 4)

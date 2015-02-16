@@ -6,7 +6,7 @@ helpers do
   end
 
   def redirect_user
-    redirect "/home/users/#{@current_user.id}" if current_user
+    redirect "/home/users/#{@user.id}" if current_user
   end
 
   def authenticate?(user)

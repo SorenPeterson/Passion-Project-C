@@ -1,27 +1,27 @@
-  #notebook_wrapper {
-   width: 100%;
-   height: 100%;
- }
- #notebook_desk {
+#notebook_wrapper {
+  width: 100%;
+  height: 100%;
+}
+#notebook_desk {
   display: block;
   text-align: center;
-  height: 500px;
- }
- #main_note{
-  width: 42%;
+  height: 700px;
+  margin-top: 5px;
+}
+#main_note{
+  width: 80%;
   height: 90%;
   display: inline-block;
   text-align: center;
+  margin-left: 8%;
   background-color: white;
-  margin-left: 18%;
+}
 
- }
+#main_note p {
+  color: black;
+}
 
- #main_note p {
-   color: black;
- }
-
- #main_note ul {
+#main_note ul {
   text-align: center;
   padding-top: 5%;
   padding-bottom: 5%;
@@ -54,128 +54,124 @@
   float:right;
   text-align: center;
 }
-#notebook_container {
+
+/*END OF DESK*/
+
+.notebook_container {
   text-align: center;
   background-color: black;
+  position: absolute;
+  bottom: 0;
   width:100%;
- }
-#page_left {
-  height:450px;
-  color:white;
+  display: inline-block;
 }
-#left_note{
+#page_left {
+  margin-top: 7px;
+  margin-bottom: 5px;
+  float: left;
+  height: 250px;   
+  background-color: #323949;
+  color: white;
+  display: inline-block;
+  width:75px;
+  z-index: 1;
+  right: 0;
+}
+
+/*PAGE 1*/
+
+#drawer_left{
   display: inline-block;
   height: 100%;
-  width: 25%;
-  background-color: blue;
-  text-align: center;
-}
-
-#left_note p {
- color: white;
-}
-
-#left_note ul {
-  text-align: center;
-}
-
-#left_note li {
-  list-style-type: none;
-}
-
-#center_note{
-  display: inline-block;
-  height: 35%;
-  width: 25%;
+  width: 29%;
   background-color: red;
   text-align: center;
+  margin: 15px;
+  color: white;
 }
 
 
-#center_note p {
- color: white;
+#drawer_left p {
+  color: white;
 }
 
-#center_note ul {
+#drawer_left ul {
   text-align: center;
   padding-top: 5%;
   padding-bottom: 5%;
   margin-right: 7%;
 }
 
-#center_note li {
+#drawer_left li {
   list-style-type: none;
 }
 
-#right_note{
+/*PAGE 2*/
+
+#drawer_center{
   display: inline-block;
-  width: 35%;
+  width: 29%;
   height: 100%;
   background-color: green;
+  margin: 15px;
+  color: white;
 
 }
 
-#right_note p {
- color: white;
+#drawer_center p {
+  color: white;
 }
 
-#right_note ul {
+#drawer_center ul {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  margin-right: 7%;
+  text-align: center;
+}
+
+#drawer_center li {
+  list-style-type: none;
+}
+
+/*PAGE 3*/
+
+#drawer_right{
+  display: inline-block;
+  width: 29%;
+  background-color: blue;
+  text-align: center;
+  margin: 15px;
+  color: white;
+}
+
+#drawer_right p {
+  color: white;
+}
+
+#drawer_right ul {
   text-align: center;
   padding-top: 5%;
   padding-bottom: 5%;
   margin-right: 7%;
 }
 
-#right_note li {
+#drawer_right li {
   list-style-type: none;
 }
 
 #page_right {
-  position: absolute;
-  float:left;
-  height:450px;
-  color:white;
+  float:right;
+  margin-top: 7px;
+  height: 250px;   
+  background-color: #323949;
+  color: white;
+  display: inline-block;
+  right:0;
+  z-index: 1;
+  left:auto;
+  bottom: 0;
+  width:75px;
 }
-/*#button1 { 
-  background:#0081b7; 
-  height:50px; 
-  overflow:hidden; 
-  text-align:center; 
-  width:50px; 
-  border-radius:50%; 
-  -moz-border-radius:50%; 
-  -webkit-border-radius:50%;
-  transition:0.3s ease all; 
-  -moz-transition:0.3s ease all; 
-  -webkit-transition:0.3s ease all;
+.toolbox {
+  display: none;
 }
-#button1.text { 
-  font-size:30px; height:100%; padding-top:5px; }
-#button1.click { opacity:0; padding:10px 10px 5px; margin:0 auto; margin-top:0px; }
-
-#button1:hover { 
-  width:200px; 
-  border-radius:5px; 
-  -moz-border-radius:5px; 
-  -webkit-border-radius:5px;
-}
-#button1:hover .text{ opacity:0; }
-#button1:hover .click{ opacity:1; margin-top:5px; }
-
-/* Button 2 --------------------------------- */
-#button2 { 
-  height:200px; 
-}
-#button2.text { 
-  font-size:100px; height:20%; 
-}
-#button2.click { opacity:0; padding-top:65px; 
-  transform:scale(0.5); -moz-transform:scale(0.5); -webkit-transform:scale(0.5); 
-}
-
-#button2:hover .text{ opacity:0; z-index:888; 
-  transform:scale(2); -moz-transform:scale(2); -webkit-transform:scale(2); 
-}
-#button2:hover .click{ opacity:1; z-index:999; 
-  transform:scale(1); -moz-transform:scale(1); -webkit-transform:scale(1); 
-}*/

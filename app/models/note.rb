@@ -6,6 +6,4 @@ class Note < ActiveRecord::Base
 	:too_long => "You've exceeded 140 characters",
 	:too_short => "You must enter at least 1 character"
 
-	default_scope { order('updated_at DESC') }
-
 end
