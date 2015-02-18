@@ -2,6 +2,11 @@
 get '/users' do
 end
 
+get '/users/logout' do
+  auth_sign_out
+  redirect '/'
+end
+
 # Display a users homepage
 get '/users/:user_name' do
 end

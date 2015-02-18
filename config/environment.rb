@@ -23,6 +23,8 @@ require 'erb'
 require 'dotenv'
 require 'oauth2'
 require 'google/api_client'
+require "better_errors"
+
 
 # Load dotenv stuff
 Dotenv.load
@@ -31,6 +33,11 @@ Dotenv.load
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
 APP_NAME = APP_ROOT.basename.to_s
+
+configure :development do
+  use BetterErrors::Middleware
+  BetterErrors.application_root = __dir__
+end
 
 configure do
   # By default, Sinatra assumes that the root is the file that calls the configure block.
