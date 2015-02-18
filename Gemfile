@@ -15,6 +15,10 @@ gem 'rake'
 
 gem 'shotgun'
 
+gem 'dotenv'
+gem 'oauth2'
+gem 'google-api-client', '>= 0.5'
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
