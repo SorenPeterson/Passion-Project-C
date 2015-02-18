@@ -1,8 +1,12 @@
 get '/' do
-  erb :index
+  if auth_user_info
+    erb :index
+  else
+    erb :welcome
+  end
 end
 
 get '/oauth2callback' do
   auth_process_code params[:code]
-  redirect "/users/#{current_user.id}"
+  redirect "/"
 end

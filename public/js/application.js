@@ -1,6 +1,7 @@
 function createCategory(event) {
   var that = $(this)
   var categoryInput = that.find("input[name=name]")
+  var new_item = $("#category-list-item-template").find("li").clone();
 
   event.preventDefault();
 
@@ -8,24 +9,33 @@ function createCategory(event) {
     name: categoryInput.val()
   }
 
+  new_item.prepend(categoryInput.val());
+  $("#category-list").append(new_item);
+
   $.post('/categories', params).done(function(response) {
-    new_item = $("#category-list-item-template").find("li").clone();
-    new_item.prepend(categoryInput.val());
     new_item.attr('data', response.id);
     new_item.on('click', deleteCategory);
-    $("#category-list").append(new_item);
+
+    $("form#add-link").find("select").append('<option value="' + response.id + '">' + categoryInput.val() + '</option>')
 
     categoryInput.val("");
+  }).fail(function() {
+    new_item.remove();
   });
 }
 
 function deleteCategory() {
   var that = $(this)
-  that.hide();
+  that.remove();
+  $("option[value=" + that.attr("data") + "]").remove();
 
   $.post('/categories/delete', {
     id: that.attr("data")
   });
+}
+
+function addLink() {
+
 }
 
 $(document).ready(function() {

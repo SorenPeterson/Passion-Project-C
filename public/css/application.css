@@ -1,3 +1,11 @@
 #profile-photo {
   width: 100px;
 }
+
+#category-list-item-template {
+  display: none;
+}
+
+#link-list-item-template {
+  display: none;
+}
