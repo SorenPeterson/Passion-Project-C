@@ -8,7 +8,13 @@ get '/users/logout' do
 end
 
 # Display a users homepage
-get '/users/:user_name' do
+get '/users/:id' do
+  @user = User.find_by(id: params[:id])
+  if @user
+    erb :'users/userpage'
+  else
+    erb :'users/nosuchuser'
+  end
 end
 
 # Form to create a new user
@@ -20,5 +26,5 @@ post '/users' do
 end
 
 # Update User Info
-get '/users/:user_name/edit' do
+get '/users/:id/edit' do
 end

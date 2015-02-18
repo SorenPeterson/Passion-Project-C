@@ -1,3 +1,6 @@
 class Category < ActiveRecord::Base
-  # Remember to create a migration!
+  validates :name, presence: true
+
+  has_and_belongs_to_many :users
+  has_and_belongs_to_many :links
 end

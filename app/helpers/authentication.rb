@@ -68,6 +68,7 @@ helpers do
     session.delete :user_info
   end
 
-  def logged_in?
+  def current_user
+    User.find_or_create_by(sub: auth_user_info["sub"])
   end
 end

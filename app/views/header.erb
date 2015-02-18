@@ -1,5 +1,7 @@
-<% if logged_in? %>
-  <p>Welcome, <%= current_user.username %></p>
+<% if auth_user_info %>
+  <p>Welcome, <%= auth_user_info["given_name"] %></p>
+  <%= auth_user_info.inspect %>
+  <a href="/users/logout">Logout</a>
 <% else %>
-  <p>Please login or signup</p>
+  <a href="<%= auth_authorize_link %>">Login</a>
 <% end %>

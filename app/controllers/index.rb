@@ -4,5 +4,5 @@ end
 
 get '/oauth2callback' do
   auth_process_code params[:code]
-  redirect '/'
+  redirect "/users/#{current_user.id}"
 end
