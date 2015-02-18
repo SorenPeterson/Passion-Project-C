@@ -1,6 +1,6 @@
 <% if auth_user_info %>
   <p>Welcome, <%= auth_user_info["given_name"] %></p>
-  <%= auth_user_info.inspect %>
+  <img id="profile-photo" src="<%= auth_user_info["picture"] %>">
   <a href="/users/logout">Logout</a>
 <% else %>
   <a href="<%= auth_authorize_link %>">Login</a>

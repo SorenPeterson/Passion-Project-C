@@ -3,6 +3,18 @@
   <input type="submit" value="Create">
 </form>
 
+<form id="add-link">
+  <input type="text" name="link" placeholder="Link Location">
+
+  <select>
+    <% @user.categories.each do |category| %>
+      <option value="<%= category.id %>"><%= category.name %></option>
+    <% end %>
+  </select>
+
+  <input type="submit" value="Add">
+</form>
+
 <ul id="category-list">
   <% @user.categories.each do |category| %>
     <li class="category-list-item" data="<%= category.id %>">
@@ -10,6 +22,10 @@
       <input type="button" value="Delete">
       <ul class="link-list">
         <% category.links.each do |link| %>
+          <li class="link-list-item">
+            <%= link.link %>
+            <input type="button" value="Delete">
+          </li>
         <% end %>
       </ul>
     </li>
