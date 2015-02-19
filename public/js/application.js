@@ -67,7 +67,6 @@ function Link(link, id, title) {
   this.title = title;
 
   this.html = $("#link-list-item-template").find(".link-list-item").clone();
-  this.html.find("a").attr("href", link);
   this.html.find("a").text(this.title || this.link);
 
   this.html.data('selfref', that);
