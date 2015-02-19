@@ -23,7 +23,7 @@ require 'erb'
 require 'dotenv'
 require 'oauth2'
 require 'google/api_client'
-require "better_errors"
+require "better_errors" if development?
 
 require 'pismo'
 
