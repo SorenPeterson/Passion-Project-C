@@ -25,6 +25,7 @@ require 'oauth2'
 require 'google/api_client'
 require "better_errors"
 
+require 'pismo'
 
 # Load dotenv stuff
 Dotenv.load

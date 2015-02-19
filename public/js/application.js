@@ -46,9 +46,9 @@ Category.prototype.delete = function() {
   })
 }
 
-Category.prototype.addLink = function(link, id) {
-  new_link = new Link(link);
-  new_link.id = id;
+Category.prototype.addLink = function(link, id, title) {
+  new_link = new Link(link, id, title);
+
   this.html.find(".link-list").append(new_link.html);
   return new_link;
 }
@@ -60,16 +60,21 @@ function createCategory(event) {
   input.val("");
 }
 
-function Link(link) {
+function Link(link, id, title) {
   var that = this;
   this.link = link;
+  this.id = id;
+  this.title = title;
 
   this.html = $("#link-list-item-template").find(".link-list-item").clone();
   this.html.find("a").attr("href", link);
+  this.html.find("a").text(this.title || this.link);
 
   this.html.data('selfref', that);
 
-  this.html.draggable();
+  this.html.draggable({
+    revert: true
+  });
 }
 
 Link.prototype.save = function(category_id) {
@@ -79,6 +84,10 @@ Link.prototype.save = function(category_id) {
     category: category_id
   }, function(response) {
     that.id = response.id;
+    that.title = response.title;
+    that.html.find("a").text("")
+  }).fail(function() {
+    that.delete();
   });
 }
 
@@ -133,7 +142,8 @@ function populate(items) {
     new_category.id = items[category]["id"];
 
     for(var link in items[category]["items"]) {
-      new_category.addLink(items[category]["items"][link]["link"], items[category]["items"][link]["id"]);
+      var link_data = items[category]["items"][link]
+      new_category.addLink(link_data["link"], link_data["id"], link_data["title"]);
     }
   }
 }

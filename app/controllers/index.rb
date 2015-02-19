@@ -14,7 +14,8 @@ get '/items' do
     links = links.map do |link|
       {
         link: link.link,
-        id: link.id
+        id: link.id,
+        title: link.title
       }
     end
     {

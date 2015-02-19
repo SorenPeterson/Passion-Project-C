@@ -19,6 +19,8 @@ gem 'dotenv'
 gem 'oauth2'
 gem 'google-api-client', '>= 0.5'
 
+gem 'pismo'
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
