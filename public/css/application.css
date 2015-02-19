@@ -26,13 +26,12 @@ body {
 
 .link-list-item {
   display: inline-block;
-  width: 100px;
-  height: 100px;
   background-color: white;
 }
 
 #trash {
   width: 20%;
+  float: right;
 }
 
 #trash img {
