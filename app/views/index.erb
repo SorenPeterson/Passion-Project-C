@@ -19,12 +19,12 @@
   <% current_user.categories.each do |category| %>
     <li class="category-list-item" data="<%= category.id %>">
       <%= category.name %>
-      <input type="button" value="Delete">
+      <input type="button" name="delete" value="Delete">
       <ul class="link-list">
         <% category.links.each do |link| %>
           <li class="link-list-item" data="<%= link.id %>">
             <%= link.link %>
-            <input type="button" value="Delete">
+            <input type="button" name="delete" value="Delete">
           </li>
         <% end %>
       </ul>
