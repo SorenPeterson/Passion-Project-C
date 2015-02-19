@@ -1,22 +1,9 @@
 <form id="create-category">
   <input type="text" name="name" placeholder="Category name">
-  <input type="submit" value="Create">
-</form>
-
-<form id="add-link">
-  <input type="text" name="link" placeholder="Link Location">
-
-  <select>
-    <% current_user.categories.each do |category| %>
-      <option value="<%= category.id %>"><%= category.name %></option>
-    <% end %>
-  </select>
-
-  <input type="submit" value="Add">
 </form>
 
 <ul id="category-list">
-  <% current_user.categories.each do |category| %>
+  <!-- <% current_user.categories.each do |category| %>
     <li class="category-list-item" data="<%= category.id %>">
       <%= category.name %>
       <input type="button" name="delete" value="Delete">
@@ -29,5 +16,9 @@
         <% end %>
       </ul>
     </li>
-  <% end %>
+  <% end %> -->
 </ul>
+
+<div id="trash">
+  Trash
+</div>

@@ -1,62 +1,139 @@
-function createCategory(event) {
-  var that = $(this)
-  var categoryInput = that.find("input[name=name]")
-  var new_item = $("#category-list-item-template").find("li").clone();
+function Category(name) {
+  var that = this;
 
-  var params = {
-    name: categoryInput.val()
-  }
+  this.name = name;
+  this.html = $("#category-list-item-template").find("li.category-list-item").clone();
+  this.html.prepend(name);
 
-  event.preventDefault();
-  categoryInput.val("");
+  $("#category-list").append(this.html);
 
-  new_item.prepend(params.name);
-  $("#category-list").append(new_item);
+  this.html.find("input[name=delete]").on('click', function() {
+    that.delete();
+  })
 
-  $.post('/categories', params).done(function(response) {
-    new_item.attr('data', response.id);
-    new_item.find("input[name=delete]").on('click', deleteCategory);
+  this.html.find(".add-link").on('submit', function(event) {
+    event.preventDefault();
+    var input = $(this).find("input[name=link]")
+    that.addLink(input.val()).save(that.id);
+    input.val("");
+  })
+}
 
-    $("form#add-link").find("select").append('<option value="' + response.id + '">' + params.name + '</option>')
+Category.prototype.save = function() {
+  var that = this;
+  // Create the category in the database and set the id so we can reference it later
+  $.post('/categories', {
+    name: that.name
+  }).done(function(response) {
+    that.id = response.id;
+  // Remove the category if it fails to validate
   }).fail(function() {
-    new_item.remove();
+    that.html.remove();
   });
 }
 
-function deleteCategory() {
-  var that = $(this).parent()
-  that.remove();
-  $("option[value=" + that.attr("data") + "]").remove();
+Category.prototype.delete = function() {
+  var that = this;
+
+  that.html.hide();
 
   $.post('/categories/delete', {
-    id: Number(that.attr("data"))
+    id: that.id
+  }).done(function() {
+    that.html.remove();
+  }).fail(function() {
+    that.html.show();
+  })
+}
+
+Category.prototype.addLink = function(link, id) {
+  new_link = new Link(link);
+  new_link.id = id;
+  this.html.find(".link-list").append(new_link.html);
+  return new_link;
+}
+
+function createCategory(event) {
+  var input = $(this).find("input[name=name]");
+  event.preventDefault();
+  new Category(input.val()).save();
+  input.val("");
+}
+
+function Link(link) {
+  var that = this;
+  this.link = link;
+
+  this.html = $("#link-list-item-template").find(".link-list-item").clone();
+  this.html.find("a").attr("href", link);
+
+  this.html.data('selfref', that);
+
+  this.html.draggable();
+}
+
+Link.prototype.save = function(category_id) {
+  var that = this;
+  $.post("/links/create", {
+    link: that.link,
+    category: category_id
+  }, function(response) {
+    that.id = response.id;
   });
 }
 
-function addLink(event) {
-  var that = $(this);
-  var categoryInput = that.find("select :selected");
-  var linkInput = that.find("input[name=link]");
-  var new_item = $("#link-list-item-template").find("li").clone();
+Link.prototype.delete = function() {
+  var that = this;
+  this.html.remove();
 
-  var params = {
-    link: linkInput.val(),
-    category: Number(categoryInput.val())
-  }
-
-  event.preventDefault();
-
-  $.post('/links/create', params)
+  $.post('/links/delete', {
+    id: that.id
+  }, function() {});
 }
 
-function deleteLink(event) {
+// function addLink(event) {
+//   var that = $(this);
+//   var categoryInput = that.find("select :selected");
+//   var linkInput = that.find("input[name=link]");
+//   var new_item = $("#link-list-item-template").find("li").clone();
 
-}
+//   var params = {
+//     link: linkInput.val(),
+//     category: Number(categoryInput.val())
+//   }
+
+//   event.preventDefault();
+//   linkInput.val("");
+
+//   $("li[data=" + params.category + "] > ul").append(new_item);
+//   new_item.prepend(params.link);
+
+//   $.post('/links/create', params, function() {
+//     new_item.attr('data', response.id);
+//     new_item.find("input[name=delete]").on('click', deleteLink);
+//   })
+// }
 
 $(document).ready(function() {
-  $(".category-list-item > input[name=delete]").on('click', deleteCategory);
-  $(".link-list-item > input[name=delete]").on('click', deleteLink);
-
   $("#create-category").on('submit', createCategory);
-  $("#add-link").on('submit', addLink);
+  $.get("/items", {}, function(response) {
+    populate(response);
+  })
+
+  $("#trash").droppable({
+    drop: function(event, ui) {
+      $(ui.draggable).data().selfref.delete();
+    }
+  });
 });
+
+function populate(items) {
+  for(var category in items) {
+    new_category = new Category(items[category]["name"]);
+    new_category.id = items[category]["id"];
+
+    for(var link in items[category]["items"]) {
+      new_category.addLink(items[category]["items"][link]["link"], items[category]["items"][link]["id"]);
+    }
+  }
+}

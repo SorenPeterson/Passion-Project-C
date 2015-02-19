@@ -14,5 +14,7 @@ post '/categories' do
 end
 
 post '/categories/delete' do
-  Category.find(params[:id]).delete
+  category =  Category.find(params[:id])
+  category.links.delete_all
+  category.delete
 end

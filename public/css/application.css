@@ -1,3 +1,17 @@
+body {
+  background-image: url("/img/background.png");
+  background-size: 100%;
+}
+
+#content {
+  margin: 5%;
+}
+
+#header {
+  display: block;
+  margin: 5%;
+}
+
 #profile-photo {
   width: 100px;
 }
@@ -8,4 +22,19 @@
 
 #link-list-item-template {
   display: none;
+}
+
+.link-list-item {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+}
+
+#trash {
+  width: 20%;
+}
+
+#trash img {
+  max-width: 100%;
 }
