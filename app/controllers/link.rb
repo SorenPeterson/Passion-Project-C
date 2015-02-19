@@ -1,15 +1,15 @@
 post '/links/create' do
   content_type :json
 
-  doc = Pismo::Document.new(params[:link])
-
-  new_link = Link.create(link: params[:link], title: doc.title)
+  new_link = Link.create(link: params[:link])
 
   if new_link.persisted?
     current_user.links << new_link
     Category.find(params[:category]).links << new_link
     return {
-      id: new_link.id
+      id: new_link.id,
+      title: new_link.title,
+      link: new_link.link
     }.to_json
   else
     status 400

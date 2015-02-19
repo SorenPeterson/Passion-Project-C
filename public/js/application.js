@@ -85,7 +85,8 @@ Link.prototype.save = function(category_id) {
   }, function(response) {
     that.id = response.id;
     that.title = response.title;
-    that.html.find("a").text("")
+    that.html.find("a").text(that.title || that.link)
+    that.html.find("a").attr("href", response.link);
   }).fail(function() {
     that.delete();
   });
