@@ -4,16 +4,9 @@
     <img id="profile-photo" src="<%= auth_user_info["picture"] %>">
     <a href="/users/logout">Logout</a>
   <% else %>
-    <img src="/img/front-icon.png">
-    <span id="signinButton">
-      <span
-        class="g-signin"
-        data-callback="http://rdl8r.com/oauth2callback"
-        data-clientid="422244977078-i01tmc3ar9ob0bka26uf9jmbm34tun5q.apps.googleusercontent.com"
-        data-cookiepolicy="single_host_origin"
-        data-requestvisibleactions="http://schema.org/AddAction"
-        data-scope="https://www.googleapis.com/auth/plus.login">
-      </span>
-    </span>
+    <img id="front-icon" src="/img/front-icon.png">
+    <div id="login-button">
+      <a id="login-link" href="<%= auth_authorize_link %>">Login</a>
+    </div>
   <% end %>
 </div>

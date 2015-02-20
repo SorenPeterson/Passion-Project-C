@@ -91,3 +91,20 @@ input[type=text]:focus {
 :-ms-input-placeholder {
    color: white;
 }
+
+#front-icon {
+  display: block;
+  margin: auto;
+}
+
+#login-link {
+  background-color: white;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+#login-button {
+  text-align: center;
+  margin: 10px;
+}
