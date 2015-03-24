@@ -1,8 +1,25 @@
 <div id="header">
   <% if auth_user_info %>
-    <p>Welcome, <%= auth_user_info["given_name"] %></p>
-    <img class="profile-photo" src="<%= auth_user_info["picture"] %>">
-    <a href="/users/logout">Logout</a>
+    <div class="user-info">
+      <p>
+        Welcome, <%= auth_user_info["given_name"] %>
+        <br>
+        <a href="/users/logout">Logout</a>
+      </p>
+      <img class="profile-photo" src="<%= auth_user_info["picture"] %>">
+    </div>
+
+    <h1>Read L8r</h1>
+    <h3>How to use:</h3>
+    <p>
+      Create categories for your links by entering a name into the "New Category" box.
+      <br>
+      Add links to your categories (The titles will automatically sync with the website)
+      <br>
+      If you don't want a link anymore, you can drag it to the trash.
+    </p>
+
+    <div class="clr-both"></div>
   <% else %>
     <div class="front-title">
       <h1>Read L8r</h1>

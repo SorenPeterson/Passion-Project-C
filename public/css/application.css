@@ -9,10 +9,21 @@ body {
 #header {
   display: block;
   margin: 5%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Header */
+
+.user-info {
+  float: right;
 }
 
 .profile-photo {
   width: 100px;
+  border-radius: 100%;
+  border: 1px solid black;
 }
 
 #category-list-item-template {
@@ -61,34 +72,8 @@ body {
   max-width: 100%;
 }
 
-input[type=text] {
-  background: rgba(0, 0, 0, 0.1);
-  border: none;
-  border-radius: 3px;
-  color: black;
-  padding: 5px;
-  box-shadow: 3px 3px 3px black;
-  text-shadow: 3px 3px 3px black;
-}
-
 input[type=text]:focus {
   text-shadow: none;
-}
-
-::-webkit-input-placeholder {
-   color: white;
-}
-
-:-moz-placeholder { /* Firefox 18- */
-   color: white;
-}
-
-::-moz-placeholder {  /* Firefox 19+ */
-   color: white;
-}
-
-:-ms-input-placeholder {
-   color: white;
 }
 
 /* Landing Page */
@@ -111,4 +96,10 @@ input[type=text]:focus {
   .login-button img {
     width: 200pt;
   }
+}
+
+/* Helpers */
+
+.clr-both {
+  clear: both;
 }
