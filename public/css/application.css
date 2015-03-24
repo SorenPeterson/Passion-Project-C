@@ -12,7 +12,7 @@ body {
   margin: 5%;
 }
 
-#profile-photo {
+.profile-photo {
   width: 100px;
 }
 
@@ -92,19 +92,14 @@ input[type=text]:focus {
    color: white;
 }
 
-#front-icon {
-  display: block;
-  margin: auto;
-}
-
-#login-link {
-  background-color: white;
-  padding: 10px;
-  border: 1px solid black;
-  border-radius: 5px;
-}
-
-#login-button {
+.front-title {
   text-align: center;
-  margin: 10px;
+}
+
+.front-title h1 {
+  font-size: 80pt;
+}
+
+.login-button {
+  text-align: center;
 }

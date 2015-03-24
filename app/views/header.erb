@@ -1,12 +1,16 @@
 <div id="header">
   <% if auth_user_info %>
     <p>Welcome, <%= auth_user_info["given_name"] %></p>
-    <img id="profile-photo" src="<%= auth_user_info["picture"] %>">
+    <img class="profile-photo" src="<%= auth_user_info["picture"] %>">
     <a href="/users/logout">Logout</a>
   <% else %>
-    <img id="front-icon" src="/img/front-icon.png">
-    <div id="login-button">
-      <a id="login-link" href="<%= auth_authorize_link %>">Login</a>
+    <div class="front-title">
+      <h1>Read L8r</h1>
+    </div>
+    <div class="login-button">
+      <a class="login-link" href="<%= auth_authorize_link %>">
+        <img src="/img/google-sign-in-button.png">
+      </a>
     </div>
   <% end %>
 </div>
