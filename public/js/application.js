@@ -1,62 +1,10 @@
-function Category(name) {
-  var that = this;
-
-  this.name = name;
-  this.html = $("#category-list-item-template").find("li.category-list-item").clone();
-  this.html.prepend(name);
-
-  $("#category-list").append(this.html);
-
-  this.html.find("input[name=delete]").on('click', function() {
-    that.delete();
-  })
-
-  this.html.find(".add-link").on('submit', function(event) {
-    event.preventDefault();
-    var input = $(this).find("input[name=link]")
-    that.addLink(input.val()).save(that.id);
-    input.val("");
-  })
-}
-
-Category.prototype.save = function() {
-  var that = this;
-  // Create the category in the database and set the id so we can reference it later
-  $.post('/categories', {
-    name: that.name
-  }).done(function(response) {
-    that.id = response.id;
-  // Remove the category if it fails to validate
-  }).fail(function() {
-    that.html.remove();
-  });
-}
-
-Category.prototype.delete = function() {
-  var that = this;
-
-  that.html.hide();
-
-  $.post('/categories/delete', {
-    id: that.id
-  }).done(function() {
-    that.html.remove();
-  }).fail(function() {
-    that.html.show();
-  })
-}
-
-Category.prototype.addLink = function(link, id, title) {
-  new_link = new Link(link, id, title);
-
-  this.html.find(".link-list").append(new_link.html);
-  return new_link;
-}
-
 function createCategory(event) {
-  var input = $(this).find("input[name=name]");
   event.preventDefault();
-  new Category(input.val()).save();
+
+  var input = $(this).find("input[name=name]");
+  var category = new Category(input.val())
+
+  $("#category-list").append(category.$el.html());
   input.val("");
 }
 
@@ -66,12 +14,12 @@ function Link(link, id, title) {
   this.id = id;
   this.title = title;
 
-  this.html = $("#link-list-item-template").find(".link-list-item").clone();
-  this.html.find("a").text(this.title || this.link);
+  this.$el = $("#link-list-item-template").find(".link-list-item").clone();
+  this.$el.find("a").text(this.title || this.link);
 
-  this.html.data('selfref', that);
+  this.$el.data('selfref', that);
 
-  this.html.draggable({
+  this.$el.draggable({
     revert: true
   });
 }
@@ -84,8 +32,8 @@ Link.prototype.save = function(category_id) {
   }, function(response) {
     that.id = response.id;
     that.title = response.title;
-    that.html.find("a").text(that.title || that.link)
-    that.html.find("a").attr("href", response.link);
+    that.$el.find("a").text(that.title || that.link)
+    that.$el.find("a").attr("href", response.link);
   }).fail(function() {
     that.delete();
   });
@@ -93,7 +41,7 @@ Link.prototype.save = function(category_id) {
 
 Link.prototype.delete = function() {
   var that = this;
-  this.html.remove();
+  this.$el.remove();
 
   $.post('/links/delete', {
     id: that.id
@@ -145,5 +93,7 @@ function populate(items) {
       var link_data = items[category]["items"][link]
       new_category.addLink(link_data["link"], link_data["id"], link_data["title"]);
     }
+
+    $("#category-list").append(new_category.$el.html());
   }
 }

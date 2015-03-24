@@ -26,6 +26,10 @@ body {
   border: 1px solid black;
 }
 
+input[name=delete] {
+  float: right;
+}
+
 #category-list-item-template {
   display: none;
 }
@@ -70,10 +74,6 @@ body {
 
 #trash img {
   max-width: 100%;
-}
-
-input[type=text]:focus {
-  text-shadow: none;
 }
 
 /* Landing Page */
