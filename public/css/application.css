@@ -1,6 +1,5 @@
 body {
-  background-image: url("/img/background.png");
-  background-size: 100%;
+  background-image: url("/img/background.jpg");
 }
 
 #content {
@@ -92,7 +91,10 @@ input[type=text]:focus {
    color: white;
 }
 
+/* Landing Page */
+
 .front-title {
+  margin-top: 100pt;
   text-align: center;
 }
 
@@ -101,5 +103,12 @@ input[type=text]:focus {
 }
 
 .login-button {
+  margin-top: 100pt;
   text-align: center;
+}
+
+@media all and (min-width: 1000pt) {
+  .login-button img {
+    width: 200pt;
+  }
 }
