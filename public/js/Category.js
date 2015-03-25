@@ -1,11 +1,14 @@
 var Category = function(name) {
   this.initialize = function() {
+    this.name = name;
     this.$el = $('<div/>')
     this.render();
+    this.bindEvents();
   }
 
   this.render = function() {
-    this.$el.html(this.template({categoryName: name}))
+    this.$el.html(this.template({categoryName: name}));
+    this.$el = this.$el.first();
   }
 
   this.initialize();
@@ -14,13 +17,14 @@ var Category = function(name) {
 
 Category.prototype.bindEvents = function() {
   var that = this;
+  console.log(this.$el);
 
-  this.$el.find("input[name=delete]").on('click', function() {
+  this.$el.on('click', "input[name=delete]", function() {
     that.delete();
   })
 
-  this.$el.find(".add-link").on('submit', function(event) {
-    event.preventDefault();
+  this.$el.on('submit', ".add-link", function(e) {
+    e.preventDefault();
     var input = $(this).find("input[name=link]")
     that.addLink(input.val()).save(that.id);
     input.val("");
@@ -38,7 +42,7 @@ Category.prototype.save = function() {
     that.id = response.id;
   // Remove the category if it fails to validate
   }).fail(function() {
-    that.html.remove();
+    that.$el.remove();
   });
 }
 
